@@ -1,0 +1,122 @@
+.main {
+  display: flex;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.rarityText {
+  content: "";
+  position: absolute;
+  top: -4%;
+  left: 22%;
+  width: 20%;
+  height: 15%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2rem);
+  border-radius: 0.5rem 0.5rem 0 0;
+  text-align: center;
+  z-index: 2;
+  animation: spin 6s linear infinite;
+  padding: 0;
+  margin: 0;
+  z-index: -2;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.royal::after,
+.royal::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 103%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: conic-gradient(
+    from var(--angle),
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet,
+    red
+  );
+  border-radius: 2rem;
+  z-index: -1;
+  animation: spin 6s linear infinite;
+}
+
+.royal::before {
+  filter: blur(2rem);
+}
+
+.foil::after,
+.foil::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 103%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 50deg,
+    gray 90deg,
+    transparent 130deg,
+    transparent 230deg,
+    gray 270deg,
+    transparent 310deg
+  );
+  border-radius: 2rem;
+  z-index: -1;
+  animation: spin 6s linear infinite;
+}
+
+.foil::before {
+  filter: blur(5rem);
+}
+
+.striped {
+  --size: 24px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  /* stripe width */
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0) 0 var(--size),
+    rgba(0, 0, 0, 0.2) var(--size) calc(var(--size) * 2)
+  );
+  border-radius: 2rem;
+  z-index: 5;
+  animation: spin 6s linear infinite;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 2rem;
+  object-fit: cover;
+}
