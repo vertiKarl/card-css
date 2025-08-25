@@ -1,6 +1,6 @@
 @import "./finishes/Royal.module.css";
 @import "./finishes/Foil.module.css";
-@import "./patterns/Patterns.module.css";
+@import "./patterns/index.module.css";
 
 .main {
   display: flex;
@@ -32,4 +32,97 @@
   max-height: 100%;
   border-radius: 2rem;
   object-fit: cover;
+}
+
+.card-name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.card-name::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: white;
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.main:hover > .card-name {
+  transform: translateY(5rem);
+  opacity: 1;
+}
+
+.new-pickup {
+  position: absolute;
+  top: -4.5rem;
+  right: 0;
+  color: coral;
+}
+
+.new-pickup::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: coral;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.wing {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transition: all 0.5s ease;
+  opacity: 0;
+  text-align: left;
+}
+
+.right-wing {
+  right: 0;
+  transform: translateY(3rem) rotateZ(90deg);
+}
+
+.left-wing {
+  left: 0;
+  transform: translateY(3rem) rotateZ(-90deg);
+  text-align: right;
+}
+
+.wing > p {
+  background: black;
+  border-radius: 6rem;
+  margin: 0;
+  border: 2px solid white;
+}
+
+.main:hover > .right-wing {
+  transform: translateX(8.6rem) translateZ(0);
+  opacity: 1;
+}
+
+.main:hover > .left-wing {
+  transform: translateX(-6.5rem) translateZ(0);
+  opacity: 1;
+}
+
+.right-wing > p {
+  padding: 0.2rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  transform: rotateZ(-15deg);
+}
+
+.left-wing > p {
+  padding: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  transform: rotateZ(15deg);
 }

@@ -20,3 +20,33 @@
   display: flex;
   gap: 6px;
 }
+
+.form {
+  display: flex;
+}
+
+.link {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  outline: none;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.submit {
+  cursor: pointer;
+  border-left: 1px solid white;
+  background: #525252;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.3s ease;
+  font-weight: bolder;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.submit:hover {
+  filter: brightness(110%);
+}

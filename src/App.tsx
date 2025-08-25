@@ -11,6 +11,7 @@ function App() {
   const [cardRarity, setCardRarity] = useState<CardRarity>("common");
   const [cardPattern, setCardPattern] = useState<CardPattern>("none");
   const [cardImage, setCardImage] = useState<string | null>(null);
+  const [isNewPickup, setIsNewPickup] = useState(false);
 
   return (
     <>
@@ -19,12 +20,14 @@ function App() {
           finish={cardFinish}
           rarity={cardRarity}
           pattern={cardPattern}
+          isNewPickup={isNewPickup}
           image={cardImage}
         ></Card>
       </div>
       <ControlsWrapper>
         <h3>Imagelink</h3>
         <form
+          className={style.form}
           onSubmit={(ev) => {
             ev.preventDefault();
             const formData = new FormData(ev.currentTarget);
@@ -35,9 +38,18 @@ function App() {
             setCardImage(data.link);
           }}
         >
-          <input name="link" placeholder="anilist image"></input>
-          <input style={{ display: "none" }} type="submit"></input>
+          <input
+            className={style.link}
+            name="link"
+            placeholder="anilist image"
+          ></input>
+          <input
+            className={style.submit}
+            type="submit"
+            value={cardImage ? "✓" : "🗘"}
+          ></input>
         </form>
+        <span className={style.spacer} />
         <h3>Finish</h3>
         <div className={style.controls}>
           {Object.values(CardFinishes).map((type) => (
@@ -79,6 +91,16 @@ function App() {
             </button>
           ))}
         </div>
+        <span className={style.spacer} />
+        <h3>new pickup</h3>
+        <input
+          value={String(isNewPickup)}
+          onChange={(ev) => {
+            setIsNewPickup(ev.target.checked);
+          }}
+          type="checkbox"
+        ></input>
+        <span className={style.spacer} />
       </ControlsWrapper>
     </>
   );
