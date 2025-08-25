@@ -8,6 +8,10 @@
   overflow: scroll;
 }
 
+.main > *:last-child {
+  margin-bottom: 2rem;
+}
+
 .collapseButton {
   position: absolute;
   top: -2.7rem;
@@ -22,9 +26,48 @@
   bottom: 0;
   width: 100vw;
   height: 30vh;
-  transition: all 0.3s ease;
+  transition: bottom 0.3s ease, left 0.3s ease;
+}
+
+.collapseButton::after {
+  content: "↓";
+}
+
+.collapsed > .collapseButton::after {
+  content: "↑";
 }
 
 .wrapper.collapsed {
   bottom: -30vh;
+}
+
+/* if width is greater than height */
+@media screen and (min-width: 100vh) {
+  .wrapper {
+    top: 0;
+    left: 0;
+    width: 30vw;
+    min-height: 100vh;
+  }
+
+  .wrapper.collapsed {
+    left: -30vw;
+  }
+
+  .collapseButton {
+    right: -3.1rem;
+    top: 1rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .collapseButton::after {
+    content: "→";
+  }
+
+  .collapsed > .collapseButton::after {
+    content: "←";
+  }
 }

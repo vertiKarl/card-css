@@ -100,7 +100,6 @@ function App() {
           }}
           type="checkbox"
         ></input>
-        <span className={style.spacer} />
       </ControlsWrapper>
     </>
   );

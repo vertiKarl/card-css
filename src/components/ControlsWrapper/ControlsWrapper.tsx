@@ -10,9 +10,7 @@ export function ControlsWrapper({ children }: { children: ReactNode }) {
       <button
         onClick={() => setCollapsed((prev) => !prev)}
         className={style.collapseButton}
-      >
-        {collapsed ? "↑" : "↓"}
-      </button>
+      ></button>
       <div className={style.main}>{children}</div>
     </div>
   );
