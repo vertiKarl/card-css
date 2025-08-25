@@ -1,0 +1,26 @@
+.foil::after,
+.foil::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 103%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 50deg,
+    gray 90deg,
+    transparent 130deg,
+    transparent 230deg,
+    gray 270deg,
+    transparent 310deg
+  );
+  border-radius: 2rem;
+  z-index: -1;
+  animation: spin 6s linear infinite;
+}
+
+.foil::before {
+  filter: blur(5rem);
+}

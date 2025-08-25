@@ -1,0 +1,43 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.royal::after,
+.royal::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 103%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: conic-gradient(
+    from var(--angle),
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet,
+    red
+  );
+  border-radius: 2rem;
+  z-index: -1;
+  animation: spin 6s linear infinite;
+}
+
+.royal::before {
+  filter: blur(2rem);
+}

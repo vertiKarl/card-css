@@ -1,0 +1,44 @@
+.striped {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 1) 0px,
+    rgba(255, 255, 255, 1) 15px,
+    rgba(255, 255, 255, 0) 15px,
+    rgba(255, 255, 255, 0) 30px
+  );
+  pointer-events: none; /* don't block clicks */
+  border-radius: 2rem;
+  z-index: 5;
+  animation: foilShine 16s linear infinite;
+  overflow: hidden;
+  filter: blur(0.05rem);
+  mix-blend-mode: overlay;
+
+  mask-image: linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  mask-repeat: no-repeat;
+  mask-size: 300% 300%;
+}
+
+@keyframes foilShine {
+  0%,
+  100% {
+    mask-position: 100% 100%;
+  }
+  50% {
+    mask-position: -100% -100%;
+  }
+}
