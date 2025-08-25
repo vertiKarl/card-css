@@ -15,17 +15,18 @@ export default function Card({
   pattern: CardPattern;
   image: string | null;
 }) {
+  const imageLink =
+    image ||
+    "https://s4.anilist.co/file/anilistcdn/character/large/default.jpg";
+
   return (
-    <div className={combine(style.main, style[finish], style[rarity])}>
+    <div
+      className={combine(style.main, style[finish], style[rarity])}
+      style={{ "--image": `url(${imageLink})` } as React.CSSProperties}
+    >
       <h3 className={style.rarityText}>{capitalize(rarity, 2).slice(0, 2)}</h3>
       <span className={combine(style.overlay, style[pattern])}></span>
-      <img
-        className={style.image}
-        src={
-          image ||
-          "https://s4.anilist.co/file/anilistcdn/character/large/default.jpg"
-        }
-      ></img>
+      <img className={style.image} src={imageLink}></img>
     </div>
   );
 }
